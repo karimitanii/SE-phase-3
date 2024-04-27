@@ -90,8 +90,7 @@ session_start();
 
       
       <a href="#book-a-table" class="book-a-table-btn scrollto d-none d-lg-flex">Book a table</a>
-      <a href="#leave-a-review" class="book-a-table-btn scrollto d-none d-lg-flex">Leave a Review</a>
-
+    <a href="#leave-a-review" class="book-a-table-btn scrollto d-none d-lg-flex">Leave a Review</a>
     </div>
   </header><!-- End Header -->
 
@@ -532,6 +531,48 @@ session_start();
 
       </div>
     </section><!-- End Book A Table Section -->
+    <!-- ======= Leave A Review Section ======= -->
+    <section id="leave-a-review" class="book-a-table">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Review</h2>
+          <p>Tell Us About Your Monet Experience</p>
+        </div>
+
+        <form class="php-email-form">
+          <div class="row">
+            <div class="col-lg-4 col-md-6 form-group">
+              <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4"
+                data-msg="Please enter at least 4 chars">
+              <div class="validate"></div>
+            </div>
+            <div class="col-lg-4 col-md-6 form-group mt-3 mt-md-0">
+              <input type="email" class="form-control" name="email" id="email" placeholder="Your Email"
+                data-rule="email" data-msg="Please enter a valid email">
+              <div class="validate"></div>
+            </div>
+            <div class="col-lg-4 col-md-6 form-group mt-3 mt-md-0">
+              <input type="text" class="form-control" name="phone" id="phone" placeholder="Your Phone"
+                data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+              <div class="validate"></div>
+            </div>
+          </div>
+          <div class="form-group mt-3">
+            <textarea class="form-control" name="message" rows="5" placeholder="Message"></textarea>
+            <div class="validate"></div>
+          </div>
+          <div class="mb-3">
+            <div class="loading">Loading</div>
+            <div class="error-message"></div>
+            <div class="sent-message">Your review was sent. Thank you for sharing!</div>
+          </div>
+          <div class="text-center"><button type="submit">Submit Review</button></div>
+        </form>
+
+      
+      </div>
+    </section><!-- Leave A Review Section -->
 
     <section id="testimonials" class="testimonials section-bg">
       <div class="container" data-aos="fade-up">

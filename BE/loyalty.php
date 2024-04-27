@@ -5,6 +5,8 @@ $db = "la-monet-users"; //kimo change the name according to you data base
 $user = "root";
 $pass = "";
 
+//lol
+
 // Create a new database connection
 $conn = new mysqli($host, $user, $pass, $db);
 
