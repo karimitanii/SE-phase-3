@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -76,7 +79,7 @@
         <div id="checkoutCartModal" class="checkoutModal">
           <div class="modal-content">
               <span class="close" onclick="closeCheckoutCartModal()">&times;</span>
-              <div id="result"></div>
+              <div id="cartResult"></div>
               <button class="btn-menu animated fadeInUp scrollto" onclick="closeCartModalAndAlert()"> Checkout </button>
           </div>
         </div>
@@ -206,7 +209,7 @@
           <div class="col-lg-6 menu-item filter-starters">
             <img src="assets/img/menu/mezze-platter.jpg" class="menu-img" alt="">
             <div class="menu-content">
-              <a href="#menu" class="menu-item-name" data-name="Mezze Platter">Mezze Platter</a><span>$18</span>
+              <a href="#menu" class="menu-item-name" data-name="Mezze Platter" data-price="18" data-id="1">Mezze Platter</a><span>$18</span>
             </div>
             <div class="menu-ingredients">
               Assorted Lebanese appetizers including hummus, baba ganoush, and muhammara served with warm pita bread.
@@ -216,7 +219,7 @@
           <div class="col-lg-6 menu-item filter-starters">
             <img src="assets/img/menu/spinach.jpg" class="menu-img" alt="">
             <div class="menu-content">
-              <a href="#menu" class="menu-item-name" data-name="Lebanese Spinach Fatayer">Lebanese Spinach Fatayer</a><span>$9</span>
+              <a href="#menu" class="menu-item-name" data-name="Lebanese Spinach Fatayer" data-price="9" data-id="2">Lebanese Spinach Fatayer</a><span>$9</span>
             </div>
             <div class="menu-ingredients">
               Flaky pastry filled with sautéed spinach, onions, pine nuts, and Lebanese spices.
@@ -226,7 +229,7 @@
           <div class="col-lg-6 menu-item filter-starters">
             <img src="assets/img/menu/frenchonion-soup.jpg.png" class="menu-img" alt="">
             <div class="menu-content">
-              <a href="#menu" class="menu-item-name" data-name="French-Lebanese Onion Soup au Za'atar">French-Lebanese Onion Soup au Za'atar</a><span>$8</span>
+              <a href="#menu" class="menu-item-name" data-name="French-Lebanese Onion Soup au Za'atar" data-price="8" data-id="3">French-Lebanese Onion Soup au Za'atar</a><span>$8</span>
             </div>
             <div class="menu-ingredients">
               Classic French onion soup infused with Lebanese za'atar spice, topped with melted gruyere cheese and crispy croutons.
@@ -236,7 +239,7 @@
           <div class="col-lg-6 menu-item filter-salads">
             <img src="assets/img/menu/grilled-halloumi.png" class="menu-img" alt="">
             <div class="menu-content">
-              <a href="#menu" class="menu-item-name" data-name="Grilled Halloumi Salad">Grilled Halloumi Salad</a><span>$12</span>
+              <a href="#menu" class="menu-item-name" data-name="Grilled Halloumi Salad" data-price="12" data-id="4">Grilled Halloumi Salad</a><span>$12</span>
             </div>
             <div class="menu-ingredients">
               Grilled halloumi cheese served on a bed of mixed greens, cherry tomatoes, cucumbers, and mint, dressed with a lemon-tahini dressing.
@@ -246,7 +249,7 @@
           <div class="col-lg-6 menu-item filter-salads">
             <img src="assets/img/menu/fattoush.png" class="menu-img" alt="">
             <div class="menu-content">
-              <a href="#menu" class="menu-item-name" data-name="Fattoush">Fattoush</a><span>$10</span>
+              <a href="#menu" class="menu-item-name" data-name="Fattoush" data-price="9" data-id="5">Fattoush</a><span>$10</span>
             </div>
             <div class="menu-ingredients">
               A refreshing Lebanese salad made with mixed greens, tomatoes, cucumbers, radishes, and crispy pita chips, dressed with a tangy sumac vinaigrette.
@@ -256,7 +259,7 @@
           <div class="col-lg-6 menu-item filter-salads">
             <img src="assets/img/menu/nicose-salad.png" class="menu-img" alt="">
             <div class="menu-content">
-              <a href="#menu" class="menu-item-name" data-name="Niçoise Salad with Za'atar Crusted Tuna">Niçoise Salad with Za'atar Crusted Tuna</a><span>$14</span>
+              <a href="#menu" class="menu-item-name" data-name="Niçoise Salad with Za'atar Crusted Tuna" data-price="14" data-id="6">Niçoise Salad with Za'atar Crusted Tuna</a><span>$14</span>
             </div>
             <div class="menu-ingredients">
               A French-inspired salad with seared tuna coated in za'atar seasoning, served over mixed greens, boiled eggs, olives, green beans, and potatoes, drizzled with lemon vinaigrette.
@@ -266,7 +269,7 @@
           <div class="col-lg-6 menu-item filter-mains">
             <img src="assets/img/menu/lamb-chops.png" class="menu-img" alt="">
             <div class="menu-content">
-              <a href="#menu" class="menu-item-name" data-name="Grilled Lamb Chops with Harissa Sauce">Grilled Lamb Chops with Harissa Sauce</a><span>$24</span>
+              <a href="#menu" class="menu-item-name" data-name="Grilled Lamb Chops with Harissa Sauce" data-price="24" data-id="7">Grilled Lamb Chops with Harissa Sauce</a><span>$24</span>
             </div>
             <div class="menu-ingredients">
               Succulent French-style lamb chops marinated with Lebanese spices, served with a spicy harissa sauce, roasted vegetables, and couscous.
@@ -276,7 +279,7 @@
           <div class="col-lg-6 menu-item filter-mains">
             <img src="assets/img/menu/braised-chicken.png" class="menu-img" alt="">
             <div class="menu-content">
-              <a href="#menu" class="menu-item-name" data-name="Coq au Vin with Lebanese Spices">Coq au Vin with Lebanese Spices</a><span>$19</span>
+              <a href="#menu" class="menu-item-name" data-name="Coq au Vin with Lebanese Spices" data-price="19" data-id="8">Coq au Vin with Lebanese Spices</a><span>$19</span>
             </div>
             <div class="menu-ingredients">
               Traditional French chicken braised in red wine, garlic, and onions, enhanced with Lebanese spices like sumac and cinnamon, served with mashed potatoes.
@@ -286,7 +289,7 @@
           <div class="col-lg-6 menu-item filter-mains">
             <img src="assets/img/menu/sea-bass.png" class="menu-img" alt="">
             <div class="menu-content">
-              <a href="#menu" class="menu-item-name" data-name="Mediterranean Sea Bass">Mediterranean Sea Bass</a><span>$28</span>
+              <a href="#menu" class="menu-item-name" data-name="Mediterranean Sea Bass" data-price="28" data-id="9">Mediterranean Sea Bass</a><span>$28</span>
             </div>
             <div class="menu-ingredients">
               Grilled sea bass fillet topped with a lemon-tahini sauce, served with a side of ratatouille and herbed couscous.
@@ -295,7 +298,7 @@
           <div class="col-lg-6 menu-item filter-mains">
             <img src="assets/img/menu/ratatouille.jpg" class="menu-img" alt="">
             <div class="menu-content">
-              <a href="#menu" class="menu-item-name" data-name="Ratatouille">Ratatouille</a><span>$16</span>
+              <a href="#menu" class="menu-item-name" data-name="Ratatouille" data-price="16" data-id="10">Ratatouille</a><span>$16</span>
             </div>
             <div class="menu-ingredients">
               A traditional French vegetable stew with eggplant, zucchini, bell peppers, tomatoes, onions, and garlic, simmered in a savory tomato sauce with aromatic herbs.
@@ -304,7 +307,7 @@
           <div class="col-lg-6 menu-item filter-mains">
             <img src="assets/img/menu/beef.png" class="menu-img" alt="">
             <div class="menu-content">
-              <a href="#menu" class="menu-item-name" data-name="Beef Shawarma Platter">Beef Shawarma Platter</a><span>$16</span>
+              <a href="#menu" class="menu-item-name" data-name="Beef Shawarma Platter" data-price="16" data-id="11">Beef Shawarma Platter</a><span>$16</span>
             </div>
             <div class="menu-ingredients">
               Marinated beef shawarma slices served with rice, grilled vegetables, and tahini sauce.
@@ -313,7 +316,7 @@
           <div class="col-lg-6 menu-item filter-desserts">
             <img src="assets/img/menu/lavender-baklava.png" class="menu-img" alt="">
             <div class="menu-content">
-              <a href="#menu" class="menu-item-name" data-name="Baklava with Lavender Honey">Baklava with Lavender Honey</a><span>$12</span>
+              <a href="#menu" class="menu-item-name" data-name="Baklava with Lavender Honey" data-price="12" data-id="12">Baklava with Lavender Honey</a><span>$12</span>
             </div>
             <div class="menu-ingredients">
               Layers of flaky phyllo pastry filled with nuts and sweetened with Lebanese lavender-infused honey, served with a scoop of vanilla ice cream.
@@ -322,7 +325,7 @@
           <div class="col-lg-6 menu-item filter-desserts">
             <img src="assets/img/menu/creme-brulee.png" class="menu-img" alt="">
             <div class="menu-content">
-              <a href="#menu" class="menu-item-name" data-name="Crème Brûlée with Orange Blossom">Crème Brûlée with Orange Blossom</a><span>$13</span>
+              <a href="#menu" class="menu-item-name" data-name="Crème Brûlée with Orange Blossom" data-price="13" data-id="13">Crème Brûlée with Orange Blossom</a><span>$13</span>
             </div>
             <div class="menu-ingredients">
               Classic French custard dessert infused with delicate orange blossom water and caramelized sugar crust, served with fresh berries.
@@ -331,7 +334,7 @@
           <div class="col-lg-6 menu-item filter-desserts" onclick="addToCart('Mezze Platter', 18)">
             <img src="assets/img/menu/rice-pudding.png" class="menu-img" alt="" >
             <div class="menu-content"> 
-              <a href="#menu" class="menu-item-name" data-name="Rosewater Rice Pudding">Rosewater Rice Pudding</a><span>$9</span>
+              <a href="#menu" class="menu-item-name" data-name="Rosewater Rice Pudding" data-price="9" data-id="14">Rosewater Rice Pudding</a><span>$9</span>
               
             </div>
             <div class="menu-ingredients">
@@ -349,9 +352,10 @@
             <div>
               <p> Item name: <span id="specific-name"></span></p>
               <span id="specific-price"></span></p>
-              <form id="addToCartForm" action="/BE/cart.php" method="POST">
+              <form id="addToCartForm" action="BE/cart.php" method="POST">
                 <input type="hidden" id="itemName" name="itemName">
                 <input type="hidden" id="price" name="price">
+                <input type="hidden" id="itemId" name="itemId">
                 <label for="quantity">Quantity:</label>
                 <input type="number" id="quantity" name="quantity" value="1" min="1"><br><br>
                 <label for="instructions">Special Instructions:</label><br>
@@ -922,6 +926,7 @@
     const item = event.target;
     let itemName = item.dataset.name;
     let itemPrice = item.dataset.price;
+    let itemId = item.dataset.id;
     const spanelement = document.getElementById("specific-name");
     const priceElement = document.getElementById("specific-price");
 
@@ -929,6 +934,12 @@
     priceElement.textContent = itemPrice;
 
     document.getElementById("cartModal").style.display = "block";
+    let name = document.getElementById("itemName");
+    let price = document.getElementById("price");
+    let Id = document.getElementById("itemId");
+    name.value = itemName;
+    price.value = itemPrice;
+    Id.value = itemId;
   }
   
   const menu = document.querySelectorAll(".menu-item-name");
@@ -947,26 +958,16 @@
     document.getElementById("cartModal").style.display = "none";
   }
 
-  document.getElementById("addToCartForm").addEventListener("submit", function(event) {
-      event.preventDefault();
-      const quantity = document.getElementById("quantity").value;
-      // You can perform further actions here, like adding to cart
-      alert("Added " + quantity + " item(s) to cart.");
-      closeCartModal();
-  });
-    function addToCart() {
-    const form = document.getElementById("addToCartForm");
-    form.submit();
-  }
+  
 
   //Check out cart related stuff
   function openAndDisplay() {
     document.getElementById("checkoutCartModal").style.display = "block";
     var xhr = new XMLHttpRequest();
-    xhr.open("GET", "BE/cart.php", true);
+    xhr.open("GET", "BE/display.php", true);
     xhr.onreadystatechange = function() {
       if (xhr.readyState === 4 && xhr.status === 200) {
-        document.getElementById("result").innerHTML = xhr.responseText;
+        document.getElementById("cartResult").innerHTML = xhr.responseText;
       } 
     };
     xhr.send();
@@ -974,6 +975,18 @@
   function closeCartModalAndAlert() {
     closeCheckoutCartModal();
     alert("Your order has been confirmed. Our chefs have received your wishes!");
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            if (xhr.status === 200) {
+                //alert('Cart emptied successfully');
+            } else {
+                //console.error('Failed to empty cart:', xhr.status);
+            }
+        }
+    };
+    xhr.open('GET', 'BE/emptyCart.php');
+    xhr.send();
   }
   function closeCheckoutCartModal() {
     document.getElementById("checkoutCartModal").style.display = "none";
