@@ -84,6 +84,7 @@
 
       
       <a href="#book-a-table" class="book-a-table-btn scrollto d-none d-lg-flex">Book a table</a>
+      <a href="#leave-a-review" class="book-a-table-btn scrollto d-none d-lg-flex">Leave a Review</a>
 
     </div>
   </header><!-- End Header -->
@@ -343,18 +344,21 @@
         
         <div id="cartModal" class="modal">
           <div class="modal-content">
-              <span class="close" onclick="closeCartModal()">&times;</span>
-              <div id="result"></div>
-              <div>
-                  <p> Item name: <span id="specific-name"></span></p>
-                  <form id="addToCartForm">
-                      <label for="quantity">Quantity:</label>
-                      <input type="number" id="quantity" name="quantity" value="1" min="1"><br><br>
-                      <label for="instructions">Special Instructions:</label><br>
-                      <textarea id="instructions" name="instructions" rows="4" cols="50"></textarea><br><br>
-                      <button type="submit">Add to Cart</button>
-                  </form>
-              </div>
+            <span class="close" onclick="closeCartModal()">&times;</span>
+            <div id="result"></div>
+            <div>
+              <p> Item name: <span id="specific-name"></span></p>
+              <span id="specific-price"></span></p>
+              <form id="addToCartForm" action="/BE/cart.php" method="POST">
+                <input type="hidden" id="itemName" name="itemName">
+                <input type="hidden" id="price" name="price">
+                <label for="quantity">Quantity:</label>
+                <input type="number" id="quantity" name="quantity" value="1" min="1"><br><br>
+                <label for="instructions">Special Instructions:</label><br>
+                <textarea id="instructions" name="instructions" rows="4" cols="50"></textarea><br><br>
+                <button type="submit" onclick="addToCart()">Add to Cart</button>
+              </form>
+            </div>
           </div>
         </div>
       
@@ -917,17 +921,30 @@
   function openCartModal(event) {
     const item = event.target;
     let itemName = item.dataset.name;
-    const spanelement=document.getElementById("specific-name");
-    spanelement.textContent=itemName;
+    let itemPrice = item.dataset.price;
+    const spanelement = document.getElementById("specific-name");
+    const priceElement = document.getElementById("specific-price");
+
+    spanelement.textContent = itemName;
+    priceElement.textContent = itemPrice;
+
     document.getElementById("cartModal").style.display = "block";
   }
   
-  function closeCartModal() {
-      document.getElementById("cartModal").style.display = "none";
+  const menu = document.querySelectorAll(".menu-item-name");
+  for (let i = 0; i < menu.length; i++) {
+    menu[i].addEventListener("click", openCartModal);
   }
-  const menu= document.querySelectorAll(".menu-item-name");
-  for (let i=0; i<15; i++){
-    menu[i].addEventListener("click",openCartModal);
+
+  
+  function closeCartModal() {
+    const spanelement = document.getElementById("specific-name");
+    const priceElement = document.getElementById("specific-price");
+
+    spanelement.textContent = "";
+    priceElement.textContent = "";
+
+    document.getElementById("cartModal").style.display = "none";
   }
 
   document.getElementById("addToCartForm").addEventListener("submit", function(event) {
@@ -937,6 +954,10 @@
       alert("Added " + quantity + " item(s) to cart.");
       closeCartModal();
   });
+    function addToCart() {
+    const form = document.getElementById("addToCartForm");
+    form.submit();
+  }
 
   //Check out cart related stuff
   function openAndDisplay() {
