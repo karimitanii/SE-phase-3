@@ -4,7 +4,7 @@ require_once('BE/loyalty.php'); // Include the backend script
 
 //lol
 
-$_SESSION['userid'] = 2; // used for testing by karim itani without log in, hard coding the userid 2 which is found in the database.
+$_SESSION['userid'] = 1; // used for testing by karim itani without log in, hard coding the userid 2 which is found in the database.
 
 
 // Call a function from the loyalty.php to fetch user details
@@ -47,7 +47,7 @@ $loyaltyPoints = $userDetails['loyaltypoints'] ?? 0;
             <h3>Price : 50 Points</h3>
 
             <h3> 20% Discount! </h3>
-            <button class="redeem-button" data-price = "50">Redeem</button>
+            <button class="redeem-button" onclick = "redeemReward(50,this)">Redeem</button>
         </div>
         <!-- ... other reward items ... -->
          <div class="reward-item">
@@ -55,7 +55,7 @@ $loyaltyPoints = $userDetails['loyaltypoints'] ?? 0;
             <h3>Price : 40 Points</h3>
 
             <h3> Free delivery!</h3>
-            <button class="redeem-button" data-price = "40">Redeem</button>
+            <button class="redeem-button" onclick = "redeemReward(40,this)">Redeem</button>
         </div>
 
         <div class="reward-item">
@@ -64,7 +64,7 @@ $loyaltyPoints = $userDetails['loyaltypoints'] ?? 0;
             <h3>Price : 20 Points</h3>
 
             <h3> Free Dessert!</h3>
-            <button class="redeem-button" data-price = "20">Redeem</button>
+            <button class="redeem-button" onclick = "redeemReward(20,this)">Redeem</button>
         </div>
 
 
@@ -73,7 +73,7 @@ $loyaltyPoints = $userDetails['loyaltypoints'] ?? 0;
             <h3>Price : 250 Points</h3>
 
             <h3> 100% Discount! </h3>
-            <button class="redeem-button" data-price = "250">Redeem</button>
+            <button class="redeem-button" onclick = "redeemReward(250,this)">Redeem</button>
         </div>
 
         <div class="reward-item">
@@ -81,7 +81,7 @@ $loyaltyPoints = $userDetails['loyaltypoints'] ?? 0;
             <h3>Price : 150 Points</h3>
 
             <h3> Free Item!</h3>
-            <button class="redeem-button" data-price = "150">Redeem</button>
+            <button class="redeem-button" onclick = "redeemReward(150,this)">Redeem</button>
         </div>
 
         <div class="reward-item">
@@ -89,7 +89,7 @@ $loyaltyPoints = $userDetails['loyaltypoints'] ?? 0;
             <h3>Price : 10 Points</h3>
 
             <h3> Free drink!</h3>
-            <button class="redeem-button" data-price = "10">Redeem</button>
+            <button class="redeem-button" onclick = "redeemReward(10,this)">Redeem</button>
         </div>
 
          <div class="reward-item">
@@ -97,7 +97,7 @@ $loyaltyPoints = $userDetails['loyaltypoints'] ?? 0;
             <h3>Price : 500 Points</h3>
 
             <h3> La Monet Painting!</h3>
-            <button class="redeem-button" data-price = "500">Redeem</button>
+            <button class="redeem-button" onclick = "redeemReward(500,this)">Redeem</button>
         </div>
 
     </div>
@@ -121,38 +121,39 @@ $loyaltyPoints = $userDetails['loyaltypoints'] ?? 0;
 
 
 <script>
+
 function redeemReward(price, button) {
+    // Confirm with the user before proceeding
+    if (!confirm('Redeem this reward for ' + price + ' points?')) {
+        return; // Stop if the user does not confirm
+    }
+
     // Disable the button to prevent multiple clicks
     button.disabled = true;
 
+    // Prepare the request
     var xhr = new XMLHttpRequest();
-    xhr.open("POST", "../BE/redeem_reward.php", true);
+    xhr.open("POST", "BE/reedem_reward.php", true);
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    xhr.onreadystatechange = function() {
-        if (this.readyState === XMLHttpRequest.DONE) {
-            if (this.status === 200) {
-                alert(this.responseText);
-                if (this.responseText.includes("successfully")) {
-                    // Update the points balance on the page
-                    var currentPoints = parseInt(document.querySelector('.points-display h2').textContent.split(':')[1].trim());
-                    var newPoints = currentPoints - price;
-                    document.querySelector('.points-display h2').textContent = 'Loyalty Points Balance: ' + newPoints;
-                }
-            } else {
-                alert('There was a problem with the request.');
+    xhr.onload = function() {
+        if (xhr.status === 200) {
+            alert(xhr.responseText);
+            // If successful, update the points on the page
+            if (xhr.responseText === "Reward redeemed successfully!") {
+                var pointsDisplay = document.querySelector('.points-display h2');
+                var currentPoints = parseInt(pointsDisplay.textContent.split(':')[1].trim());
+                pointsDisplay.textContent = 'Loyalty Points Balance: ' + (currentPoints - price);
             }
-            button.disabled = false;
+        } else {
+            alert('There was a problem with the request.');
         }
-    }
-    xhr.send("price=" + price);
+        button.disabled = false; // Re-enable the button
+    };
+    xhr.onerror = function() {
+        alert('There was a problem with the request.');
+        button.disabled = false; // Re-enable the button
+    };
+    // Send the request
+    xhr.send("price=" + price + "&userid=" + encodeURIComponent(<?php echo $_SESSION['userid']; ?>));
 }
-
-// Attach the redeemReward function to the click event of redeem buttons
-document.querySelectorAll('.redeem-button').forEach(function(button) {
-    button.addEventListener('click', function() {
-        var price = this.getAttribute('data-price');
-        redeemReward(price, this);
-    });
-});
 </script>
-

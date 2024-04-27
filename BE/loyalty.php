@@ -30,17 +30,32 @@ function getUserDetails($conn, $userid) {
 
 
 function redeemReward($conn, $userid, $price) {
-    $userDetails = getUserDetails($conn, $userid);
-    
-    if ($userDetails && $userDetails['loyaltyPoints'] >= $price) {
-        $newPoints = $userDetails['loyaltyPoints'] - $price;
-        $updateStmt = $conn->prepare("UPDATE Users SET loyaltyPoints = ? WHERE userid = ?");
-        $updateStmt->bind_param("ii", $newPoints, $userid);
-        $updateStmt->execute();
-        $updateStmt->close();
-        return "Reward redeemed successfully!";
-    } else {
-        return "Not enough points to redeem this reward.";
+    $conn->autocommit(FALSE); // turn off auto-commit
+    try {
+        $userDetails = getUserDetails($conn, $userid);
+        
+        if ($userDetails && $userDetails['loyaltypoints'] >= $price) {
+            $newPoints = $userDetails['loyaltypoints'] - $price;
+            $updateStmt = $conn->prepare("UPDATE Users SET loyaltypoints = ? WHERE userid = ?");
+            $updateStmt->bind_param("ii", $newPoints, $userid);
+            
+            if (!$updateStmt->execute()) {
+                throw new Exception("Could not update loyalty points.");
+            }
+            
+            $updateStmt->close();
+            $conn->commit(); // commit the transaction
+            $conn->autocommit(TRUE); // turn auto-commit back on
+            return "Reward redeemed successfully!";
+        } else {
+            throw new Exception("Not enough points to redeem this reward.");
+        }
+    } catch (Exception $e) {
+        $conn->rollback(); // something went wrong, roll back the transaction
+        $conn->autocommit(TRUE); // turn auto-commit back on
+        return $e->getMessage(); // return the exception message
     }
 }
+
+
 ?>
