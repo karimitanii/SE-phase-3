@@ -1,0 +1,137 @@
+body {
+    font-family: "Open Sans", sans-serif;
+    background: linear-gradient(45deg, #FFB6B9, #FDEB71); /* Color gradient similar to the second picture */
+    color: #fff;
+    background: #0c0b09;
+
+    margin: 0;
+    padding: 20px;
+}
+
+.loyalty-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #cda45e;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.loyalty-header,
+.loyalty-tos {
+    width: 800px; /* or whatever width you prefer */
+    margin: 3% auto;
+    border-radius: 20px;
+    background: black;
+    color: #cda45e;
+    padding: 20px;
+    text-align: center;
+}
+
+
+
+
+.loyalty-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    border-radius: 10px;
+    background: #cda45e;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 3%;
+}
+
+.points-display {
+    width: fit-content;
+    background-color: #7a5616;
+    color: black;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+
+
+
+
+
+
+
+.loyalty-actions {
+        background-color: #7a5616;
+
+    color : black;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+
+.Rewards {
+    color: black;
+    background: linear-gradient(to right,  #7a5616,  #7a5616); /* Example gradient */
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background 0.5s ease, box-shadow 0.5s ease; /* Transition for background and box-shadow */
+    font-family: "Open Sans", sans-serif;
+    font-size: large;
+}
+
+.Rewards-display {
+    border-radius: 10px;
+
+    display: flex; /* This will arrange the child divs (reward-item) in a row */
+    justify-content: space-around; /* This will space out the rewards evenly */
+    align-items: center; /* This will vertically align the rewards if they are of different heights */
+    flex-wrap: wrap; /* This allows the rewards to wrap onto the next line if there is not enough space */
+    padding: 20px;
+    gap: 20px; /* Adjust as necessary for spacing between rewards */
+}
+
+.reward-item {
+    padding: 20px;
+    border-radius: 10px;
+    background-color:#cda45e;
+    display: flex;
+    flex-direction: column; /* Stack image and button on top of each other */
+    align-items: center; /* Center-align the contents of each reward */
+}
+
+.reward-image {
+    background-color:#7a5616;
+    max-width: 100px; /* Or any size you prefer */
+    height: auto; /* Maintain aspect ratio */
+    margin-bottom: 10px; /* Spacing between the image and the button */
+    border-radius: 20px;
+}
+
+.redeem-button {
+    font-size: 16px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: black;
+    color: white;
+    transition: background 0.5s ease;
+    margin-top: 10px; /* Spacing above the button if needed */
+    /* No need for align-self here as it's already in a flex column context */
+}
+
+.redeem-button:hover {
+    background: linear-gradient(to right, #7a5616, #7a5616);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+
+
+
+
