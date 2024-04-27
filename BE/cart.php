@@ -50,8 +50,6 @@ function deleteCart() {
     session_destroy();
 }
 
-addItemToCart(1 , "Item 1", 10.99, 2); // Add item to cart
-addItemToCart(2, "Item 2", 5.99, 1);  // Add another item to cart
 
 // Display cart items
 displayCart();
