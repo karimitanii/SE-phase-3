@@ -24,6 +24,7 @@
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
   <link href="assets/css/popup.css" rel="stylesheet">
+  <link href="assets/css/cart.css" rel="stylesheet">
   
 
 </head>
@@ -52,7 +53,7 @@
   <header id="header" class="fixed-top d-flex align-items-cente">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-lg-between">
 
-      <h1 class="logo me-auto me-lg-0"><a href="index.html">Monet</a></h1>
+      <h1 class="logo me-auto me-lg-0"><a href="index.php">Monet</a></h1>
 
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
@@ -66,8 +67,23 @@
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
+
+      <!-- Checkout cart-->
+      <div id="checkoutCart">
+        <div id="checkoutCartIcon" onclick="openAndDisplay()">
+          <button class="btn-menu animated fadeInUp scrollto">CART</button>
+        </div>
+        <div id="checkoutCartModal" class="checkoutModal">
+          <div class="modal-content">
+              <span class="close" onclick="closeCheckoutCartModal()">&times;</span>
+              <div id="result"></div>
+              <button class="btn-menu animated fadeInUp scrollto" onclick="closeCartModalAndAlert()"> Checkout </button>
+          </div>
+        </div>
+      </div>
+
+      
       <a href="#book-a-table" class="book-a-table-btn scrollto d-none d-lg-flex">Book a table</a>
-      <a href="#testimonials" class="book-a-table-btn scrollto d-none d-lg-flex">Leave a Review</a>
 
     </div>
   </header><!-- End Header -->
@@ -340,7 +356,7 @@
                   </form>
               </div>
           </div>
-      </div>
+        </div>
       
         
       </div>
@@ -445,16 +461,19 @@
       </div>
     </section><!-- End Specials Section DONE -->
 
-    <!-- ======= Leave A Review Section ======= -->
-    <section id="leave-a-review" class="book-a-table">
+
+
+    <!-- ======= Book A Table Section ======= -->
+    <section id="book-a-table" class="book-a-table">
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
-          <h2>Review</h2>
-          <p>Tell Us About Your Monet Experience</p>
+          <h2>Reservation</h2>
+          <p>Book a Table</p>
         </div>
 
-        <form class="php-email-form">
+        <form action="forms/book-a-table.php" method="post" role="form" class="php-email-form" data-aos="fade-up"
+          data-aos-delay="100">
           <div class="row">
             <div class="col-lg-4 col-md-6 form-group">
               <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4"
@@ -471,6 +490,21 @@
                 data-rule="minlen:4" data-msg="Please enter at least 4 chars">
               <div class="validate"></div>
             </div>
+            <div class="col-lg-4 col-md-6 form-group mt-3">
+              <input type="text" name="date" class="form-control" id="date" placeholder="Date" data-rule="minlen:4"
+                data-msg="Please enter at least 4 chars">
+              <div class="validate"></div>
+            </div>
+            <div class="col-lg-4 col-md-6 form-group mt-3">
+              <input type="text" class="form-control" name="time" id="time" placeholder="Time" data-rule="minlen:4"
+                data-msg="Please enter at least 4 chars">
+              <div class="validate"></div>
+            </div>
+            <div class="col-lg-4 col-md-6 form-group mt-3">
+              <input type="number" class="form-control" name="people" id="people" placeholder="# of people"
+                data-rule="minlen:1" data-msg="Please enter at least 1 chars">
+              <div class="validate"></div>
+            </div>
           </div>
           <div class="form-group mt-3">
             <textarea class="form-control" name="message" rows="5" placeholder="Message"></textarea>
@@ -479,14 +513,15 @@
           <div class="mb-3">
             <div class="loading">Loading</div>
             <div class="error-message"></div>
-            <div class="sent-message">Your review was sent. Thank you for sharing!</div>
+            <div class="sent-message">Your booking request was sent. We will call back or send an Email to confirm your
+              reservation. Thank you!</div>
           </div>
-          <div class="text-center"><button type="submit">Submit Review</button></div>
+          <div class="text-center"><button type="submit">Book a Table</button></div>
         </form>
 
       </div>
-    </section><!-- Leave A Review Section -->
-    
+    </section><!-- End Book A Table Section -->
+
     <section id="testimonials" class="testimonials section-bg">
       <div class="container" data-aos="fade-up">
     
@@ -884,8 +919,6 @@
     let itemName = item.dataset.name;
     const spanelement=document.getElementById("specific-name");
     spanelement.textContent=itemName;
-
-
     document.getElementById("cartModal").style.display = "block";
   }
   
@@ -904,6 +937,26 @@
       alert("Added " + quantity + " item(s) to cart.");
       closeCartModal();
   });
+
+  //Check out cart related stuff
+  function openAndDisplay() {
+    document.getElementById("checkoutCartModal").style.display = "block";
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", "BE/cart.php", true);
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState === 4 && xhr.status === 200) {
+        document.getElementById("result").innerHTML = xhr.responseText;
+      } 
+    };
+    xhr.send();
+  }
+  function closeCartModalAndAlert() {
+    closeCheckoutCartModal();
+    alert("Your order has been confirmed. Our chefs have received your wishes!");
+  }
+  function closeCheckoutCartModal() {
+    document.getElementById("checkoutCartModal").style.display = "none";
+  }
 </script>
 
 
