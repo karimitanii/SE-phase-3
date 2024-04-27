@@ -6,8 +6,6 @@ require_once('BE/loyalty.php'); // Include the backend script
 
 $_SESSION['userid'] = 2; // used for testing by karim itani without log in, hard coding the userid 2 which is found in the database.
 
-//lol
-
 
 // Call a function from the loyalty.php to fetch user details
 $userDetails = getUserDetails($conn, $_SESSION['userid'] ?? null);

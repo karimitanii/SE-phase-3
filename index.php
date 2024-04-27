@@ -91,6 +91,7 @@ session_start();
       
       <a href="#book-a-table" class="book-a-table-btn scrollto d-none d-lg-flex">Book a table</a>
     <a href="#leave-a-review" class="book-a-table-btn scrollto d-none d-lg-flex">Leave a Review</a>
+
     </div>
   </header><!-- End Header -->
 
@@ -531,7 +532,7 @@ session_start();
 
       </div>
     </section><!-- End Book A Table Section -->
-    <!-- ======= Leave A Review Section ======= -->
+     <!-- ======= Leave A Review Section ======= -->
     <section id="leave-a-review" class="book-a-table">
       <div class="container" data-aos="fade-up">
 
@@ -570,9 +571,9 @@ session_start();
           <div class="text-center"><button type="submit">Submit Review</button></div>
         </form>
 
-      
       </div>
     </section><!-- Leave A Review Section -->
+
 
     <section id="testimonials" class="testimonials section-bg">
       <div class="container" data-aos="fade-up">
