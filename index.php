@@ -90,7 +90,7 @@ session_start();
 
       
       <a href="#book-a-table" class="book-a-table-btn scrollto d-none d-lg-flex">Book a table</a>
-    <a href="#leave" class="book-a-table-btn scrollto d-none d-lg-flex">Leave a Review</a>
+    <a href="#leave-a-review" class="book-a-table-btn scrollto d-none d-lg-flex">Leave a Review</a>
 
     </div>
   </header><!-- End Header -->
