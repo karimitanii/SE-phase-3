@@ -67,6 +67,7 @@
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
       <a href="#book-a-table" class="book-a-table-btn scrollto d-none d-lg-flex">Book a table</a>
+      <a href="#testimonials" class="book-a-table-btn scrollto d-none d-lg-flex">Leave a Review</a>
 
     </div>
   </header><!-- End Header -->
@@ -444,19 +445,16 @@
       </div>
     </section><!-- End Specials Section DONE -->
 
-
-
-    <!-- ======= Book A Table Section ======= -->
-    <section id="book-a-table" class="book-a-table">
+    <!-- ======= Leave A Review Section ======= -->
+    <section id="leave-a-review" class="book-a-table">
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
-          <h2>Reservation</h2>
-          <p>Book a Table</p>
+          <h2>Review</h2>
+          <p>Tell Us About Your Monet Experience</p>
         </div>
 
-        <form action="forms/book-a-table.php" method="post" role="form" class="php-email-form" data-aos="fade-up"
-          data-aos-delay="100">
+        <form class="php-email-form">
           <div class="row">
             <div class="col-lg-4 col-md-6 form-group">
               <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4"
@@ -473,21 +471,6 @@
                 data-rule="minlen:4" data-msg="Please enter at least 4 chars">
               <div class="validate"></div>
             </div>
-            <div class="col-lg-4 col-md-6 form-group mt-3">
-              <input type="text" name="date" class="form-control" id="date" placeholder="Date" data-rule="minlen:4"
-                data-msg="Please enter at least 4 chars">
-              <div class="validate"></div>
-            </div>
-            <div class="col-lg-4 col-md-6 form-group mt-3">
-              <input type="text" class="form-control" name="time" id="time" placeholder="Time" data-rule="minlen:4"
-                data-msg="Please enter at least 4 chars">
-              <div class="validate"></div>
-            </div>
-            <div class="col-lg-4 col-md-6 form-group mt-3">
-              <input type="number" class="form-control" name="people" id="people" placeholder="# of people"
-                data-rule="minlen:1" data-msg="Please enter at least 1 chars">
-              <div class="validate"></div>
-            </div>
           </div>
           <div class="form-group mt-3">
             <textarea class="form-control" name="message" rows="5" placeholder="Message"></textarea>
@@ -496,15 +479,14 @@
           <div class="mb-3">
             <div class="loading">Loading</div>
             <div class="error-message"></div>
-            <div class="sent-message">Your booking request was sent. We will call back or send an Email to confirm your
-              reservation. Thank you!</div>
+            <div class="sent-message">Your review was sent. Thank you for sharing!</div>
           </div>
-          <div class="text-center"><button type="submit">Book a Table</button></div>
+          <div class="text-center"><button type="submit">Submit Review</button></div>
         </form>
 
       </div>
-    </section><!-- End Book A Table Section -->
-
+    </section><!-- Leave A Review Section -->
+    
     <section id="testimonials" class="testimonials section-bg">
       <div class="container" data-aos="fade-up">
     
