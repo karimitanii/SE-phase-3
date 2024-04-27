@@ -1,0 +1,101 @@
+
+body {
+    font-family: "Open Sans", sans-serif;
+    background: #0c0b09;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+  }
+
+  a {
+    color: #cda45e;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: #d9ba85;
+    text-decoration: none;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Playfair Display", serif;
+  }
+
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.75);
+    font-family: "Playfair Display", serif;
+    
+  }
+
+  .modal-content {
+    background-color: #1b1818;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px; /* added for better responsiveness */
+    box-sizing: border-box; /* added to include padding in width calculation */
+    position: relative; /* added to position close button properly */
+  }
+
+  .close {
+    color: #aaa;
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    font-size: 28px;
+    font-weight: bold;
+    width: fit-content;
+  }
+
+  .close:hover,
+  .close:focus {
+    color: #cda45e;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+form{
+    font-family: "Playfair Display", serif;
+
+}
+  button {
+    background-color: transparent;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 5px; /* Rounded border */
+    padding: 10px 20px; /* Added padding for better appearance */
+    
+  }
+
+  button:hover {
+    color: #d9ba85;
+  }
+
+  label {
+    color: #fff;
+  }
+
+  input[type="number"],
+  textarea {
+    background-color: #1b1818;
+    color: #fff;
+    border: 1px solid #888;
+    width: calc(100% - 20px);
+    padding: 5px;
+    margin-bottom: 10px;
+  }
+
+  input[type="number"]:focus,
+  textarea:focus {
+    outline: none;
+    border-color: #cda45e;
+  }
