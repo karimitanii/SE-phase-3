@@ -65,7 +65,10 @@ session_start();
           <li><a class="nav-link scrollto" href="#menu">Menu</a></li>
           <li><a class="nav-link scrollto" href="#specials">Specials</a></li>
           <li><a class="nav-link scrollto" href="#testimonials">Reviews</a></li>
-          <li><a class="nav-link scrollto" href="#chefs">Loyalty Program</a></li>
+          <li><a class="nav-link scrollto" href="#chefs">Chefs</a></li>
+                    <li><a href="loyaltypage.php">Loyalty Program</a></li>
+
+
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
