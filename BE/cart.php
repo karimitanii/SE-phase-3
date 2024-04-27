@@ -1,7 +1,23 @@
 <?php
 session_start(); // Start session to store cart items
-session_unset();
-session_destroy();
+
+$name ="";
+$Id ="";
+$quantity =0;
+$price=0;
+if (isset($_POST["itemName"])) {
+    $name = $_POST["itemName"];
+}
+if (isset($_POST["price"])) {
+    $price = $_POST["price"];
+}
+if (isset($_POST["quantity"])) {
+    $quantity = $_POST["quantity"];
+}
+if (isset($_POST["itemId"])) {
+    $Id = $_POST["itemId"];
+}
+
 
 // Function to add item to cart
 function addItemToCart($itemId, $itemName, $itemPrice, $quantity) {
@@ -19,39 +35,12 @@ function addItemToCart($itemId, $itemName, $itemPrice, $quantity) {
             'quantity' => $quantity
         ];
     }
+    echo '<script>
+        alert("Item added to cart successfully!");
+        window.location.href="../index.php#menu";
+      </script>';
 }
 
-// Function to display cart items
-function displayCart() {
-    if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
-        echo "<h2>Your Cart:</h2>";
-        echo "<ul>";
-        $totalCost = 0;
-        foreach ($_SESSION['cart'] as $itemId => $item) {
-            $subtotal = $item['quantity'] * $item['price'];
-            $totalCost += $subtotal;
-            echo "<li>{$item['name']} - {$item['quantity']} x {$item['price']} = $subtotal</li>";
-        }
-        echo "</ul>";
-        echo "<p>Total Cost: $totalCost</p>";
-    } else {
-        echo "<p>Your cart is empty.</p>";
-    }
-}
-
-function isEmpty() {
-    if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) { 
-        return false;
-    }
-    return true;
-}
-
-function deleteCart() {
-    session_destroy();
-}
-
-
-// Display cart items
-displayCart();
+addItemToCart($Id, $name, $price, $quantity);
 
 ?>
