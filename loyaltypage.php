@@ -2,7 +2,7 @@
 session_start(); // Start the session at the beginning of the script
 require_once('BE/loyalty.php'); // Include the backend script
 
-
+//lol
 
 $_SESSION['userid'] = 2; // used for testing by karim itani without log in, hard coding the userid 2 which is found in the database.
 
@@ -117,6 +117,7 @@ $loyaltyPoints = $userDetails['loyaltypoints'] ?? 0;
 
 </body>
 </html>
+
 
 
 <script>
