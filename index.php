@@ -94,7 +94,7 @@ ensureLoggedIn();
       </div>
 
       
-     
+      <a href="#book-a-table" class="book-a-table-btn scrollto d-none d-lg-flex">Book a table</a>
     <a href="#leave-a-review" class="book-a-table-btn scrollto d-none d-lg-flex">Leave a Review</a>
 
     </div>
@@ -110,7 +110,7 @@ ensureLoggedIn();
 
           <div class="btns">
             <a href="#menu" class="btn-menu animated fadeInUp scrollto">Our Menu</a>
-            <a href="#book-a-table" class="btn-book animated fadeInUp scrollto">Book a Table</a>
+            <a href="#leave-a-review" class="btn-book animated fadeInUp scrollto">Leave a Review</a>
           </div>
         </div>
 
@@ -538,6 +538,7 @@ ensureLoggedIn();
       </div>
     </section><!-- End Book A Table Section -->
      <!-- ======= Leave A Review Section ======= -->
+    <!-- ======= Leave A Review Section ======= -->
     <section id="leave-a-review" class="book-a-table">
       <div class="container" data-aos="fade-up">
 
