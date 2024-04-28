@@ -3,7 +3,7 @@ session_start();
 
 function ensureLoggedIn(){
     if (!isset($_SESSION['logged-in'])){
-        header('Location: login.php');
+        header('Location: files/login.php');
         exit;
     }
 }

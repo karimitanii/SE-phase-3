@@ -37,7 +37,7 @@ $userExists = false;
         else{
             echo '<script>
         alert("This email already exists. Please choose another or log in.");
-        window.location.href="index1.php";
+        window.location.href="login.php";
       </script>';
 
         
