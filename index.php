@@ -580,89 +580,50 @@ ensureLoggedIn();
       </div>
     </section><!-- Leave A Review Section -->
 
-
     <section id="testimonials" class="testimonials section-bg">
-      <div class="container" data-aos="fade-up">
-    
-        <div class="section-title">
-          <h2>Testimonials</h2>
-          <p>What they're saying about us</p>
-        </div>
-    
-        <div class="testimonials-slider swiper-container" data-aos="fade-up" data-aos-delay="100">
-          <div class="swiper-wrapper">
-    
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <p>
-                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  "What a delightful fusion of French and Lebanese cuisine! Every bite was a journey through culinary artistry. The flavors were perfectly balanced, reminiscent of Monet's vibrant palette. A must-visit for food enthusiasts!"
-                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                </p>
-                <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
-                <h3>Emma Dubois</h3>
-                <h4>Food Critic</h4>
-              </div>
-            </div><!-- End testimonial item -->
-    
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <p>
-                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  "I've never experienced such a unique blend of flavors before! The Lebanese twist added an exciting dimension to classic French dishes. Dining here felt like stepping into one of Monet's paintings – truly magical."
-                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                </p>
-                <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
-                <h3>Nicolas Dupont</h3>
-                <h4>Art Enthusiast</h4>
-              </div>
-            </div><!-- End testimonial item -->
-    
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <p>
-                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  "Exquisite food, impeccable service! Each dish was a masterpiece, blending the best of French and Lebanese cuisine. The ambiance, reminiscent of Monet's garden, added a touch of elegance to the dining experience."
-                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                </p>
-                <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
-                <h3>Amelie Martin</h3>
-                <h4>Food Blogger</h4>
-              </div>
-            </div><!-- End testimonial item -->
-    
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <p>
-                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  "Absolutely phenomenal! The fusion of French and Lebanese flavors was executed with precision. It felt like a culinary journey through Monet's garden, with each dish bursting with color and flavor."
-                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                </p>
-                <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
-                <h3>Antoine Chevalier</h3>
-                <h4>Food Connoisseur</h4>
-              </div>
-            </div><!-- End testimonial item -->
-    
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <p>
-                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  "A gastronomic masterpiece! The marriage of French and Lebanese cuisine here is a stroke of genius. Dining at [Restaurant Name] is like experiencing Monet's artistry through the palate – sublime and unforgettable."
-                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                </p>
-                <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
-                <h3>Léa Bernard</h3>
-                <h4>Gourmet Traveler</h4>
-              </div>
-            </div><!-- End testimonial item -->
-    
-          </div>
-          <div class="swiper-pagination"></div>
-        </div>
-    
-      </div>
-    </section><!-- End Testimonials Section -->
+  <div class="container" data-aos="fade-up">
+
+    <div class="section-title">
+      <h2>Testimonials</h2>
+      <p>What they're saying about us</p>
+    </div>
+
+    <!-- Customer Reviews Section -->
+    <div id="customer-reviews">
+      <?php
+      $reviews_file = 'reviews.json';
+
+      // Check if the file exists
+      if (file_exists($reviews_file)) {
+          // Read reviews from file
+          $reviews_data = file_get_contents($reviews_file);
+          $reviews = json_decode($reviews_data, true);
+
+          // Check if there are any reviews
+          if (!empty($reviews)) {
+              // Loop through each review and display it
+              foreach ($reviews as $review) {
+                  echo '<div class="testimonial-item">';
+                  echo '<p>' . $review['message'] . '</p>';
+                  echo '<h3>' . $review['name'] . '</h3>';
+                  // Add more HTML for displaying email, phone, etc. if needed
+                  echo '</div>';
+              }
+          } else {
+              // If no reviews found
+              echo '<p>No reviews found.</p>';
+          }
+      } else {
+          // If file doesn't exist or unable to read it
+          echo '<p>Error: Unable to read reviews.</p>';
+      }
+      ?>
+    </div>
+    <!-- End Customer Reviews Section -->
+
+  </div>
+</section><!-- End Testimonials Section -->
+
     
 
     <!-- ======= Gallery Section ======= -->
