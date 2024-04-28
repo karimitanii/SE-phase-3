@@ -77,7 +77,7 @@ session_start();
       <!-- Checkout cart-->
       <div id="checkoutCart">
         <div id="checkoutCartIcon" onclick="openAndDisplay()">
-          <button class="btn-menu animated fadeInUp scrollto">CART</button>
+            <i class="fa-solid fa-cart-shopping"></i>
         </div>
         <div id="checkoutCartModal" class="checkoutModal">
           <div class="modal-content">
@@ -89,7 +89,7 @@ session_start();
       </div>
 
       
-      <a href="#book-a-table" class="book-a-table-btn scrollto d-none d-lg-flex">Book a table</a>
+
     <a href="#leave-a-review" class="book-a-table-btn scrollto d-none d-lg-flex">Leave a Review</a>
 
     </div>
@@ -533,6 +533,7 @@ session_start();
       </div>
     </section><!-- End Book A Table Section -->
      <!-- ======= Leave A Review Section ======= -->
+    <!-- ======= Leave A Review Section ======= -->
     <section id="leave-a-review" class="book-a-table">
       <div class="container" data-aos="fade-up">
 
@@ -541,7 +542,7 @@ session_start();
           <p>Tell Us About Your Monet Experience</p>
         </div>
 
-        <form class="php-email-form">
+        <form class="php-email-form" action="submit_review.php" method="post">
           <div class="row">
             <div class="col-lg-4 col-md-6 form-group">
               <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4"
