@@ -71,7 +71,7 @@ ensureLoggedIn();
           <li><a class="nav-link scrollto" href="#specials">Specials</a></li>
           <li><a class="nav-link scrollto" href="#testimonials">Reviews</a></li>
           <li><a class="nav-link scrollto" href="#chefs">Chefs</a></li>
-                    <li><a href="loyaltypage.php">Loyalty Program</a></li>
+          <li><a href="loyaltypage.php">Loyalty Program</a></li>
 
 
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
@@ -94,7 +94,7 @@ ensureLoggedIn();
       </div>
 
       
-      <a href="#book-a-table" class="book-a-table-btn scrollto d-none d-lg-flex">Book a table</a>
+      <a href="booking.php" class="book-a-table-btn scrollto d-none d-lg-flex">Book a table</a>
 
 
     </div>
