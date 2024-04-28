@@ -1,0 +1,122 @@
+body{
+    padding: 0;
+    margin: 0;
+    font-family: "Open Sans", sans-serif;
+    background-image: url(monet-bg.jpg);
+    color: #cda45e;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Playfair Display", serif;
+    text-align: center;
+    margin-bottom: 28px;
+    color: #cda45e
+  }
+
+
+form{
+    background-color: #0c0b09;
+    width: 30%;
+    border: 1px solid;
+    border-color: #cda45e;
+    box-shadow:2px -2px #cda45e;
+    padding: 1.5% 2%;
+    margin: 2% auto;
+    font-family: "Playfair Display", serif;
+
+}
+
+a{
+    color: #cda45e;
+    font-family: "Playfair Display", serif;
+
+}
+
+ul{
+    font-family: "Playfair Display", serif;
+    list-style: none;
+    padding: 0;
+}
+
+input{
+    font-family: "Playfair Display", serif;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    height: 28px;
+    border: 1px solid ;
+    border-color: #cda45e;
+    background-color: #0c0b09;
+    color: azure;
+
+}
+
+input:focus{
+    font-family: "Playfair Display", serif;
+    color: azure;
+
+}
+
+label{
+    font-family: "Playfair Display", serif;
+    display: block;
+    margin-bottom: 2px;
+}
+#m-sex,#f-sex{
+    font-family: "Playfair Display", serif;
+    margin: 0;
+    height: fit-content;
+}
+
+#m-sex, #f-sex, #gender-box label{
+    font-family: "Playfair Display", serif;
+    display:inline-block;
+    width: fit-content
+
+}
+
+#gender-box label{
+    font-family: "Playfair Display", serif;
+    margin: 5px;
+}
+
+button{
+    font-family: "Playfair Display", serif;
+    width: 100%;
+    margin-top: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 5px 0;
+    background-color: #cda45e;
+    border: none;
+    color:#0c0b09;
+    cursor: pointer;
+   
+}
+button:hover{
+    font-family: "Playfair Display", serif;
+    background-color: #0c0b09;
+    border: 2px solid;
+    border-color:#cda45e;
+    color: #cda45e;
+}
+
+#personal-details ul li, #account-creation ul li{
+    font-family: "Playfair Display", serif;
+    margin: 15px 0;
+}
+
+#submission p{
+    font-family: "Playfair Display", serif;
+    text-align: center;
+    
+}
+
+
+.error:focus{
+    background-color: rgb(215, 42, 42);
+}
+
+.confirmed:focus{
+    background-color: rgb(96, 219, 96);
+}
