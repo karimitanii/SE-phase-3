@@ -90,7 +90,7 @@ session_start();
 
       
 
-    <a href="#leave-a-review" class="book-a-table-btn scrollto d-none d-lg-flex">Leave a Review</a>
+    <a href="#book-a-table" class="book-a-table-btn scrollto d-none d-lg-flex">Book a Table</a>
 
     </div>
   </header><!-- End Header -->
@@ -105,7 +105,7 @@ session_start();
 
           <div class="btns">
             <a href="#menu" class="btn-menu animated fadeInUp scrollto">Our Menu</a>
-            <a href="#book-a-table" class="btn-book animated fadeInUp scrollto">Book a Table</a>
+            <a href="#leave-a-review" class="btn-book animated fadeInUp scrollto">Leave a Review</a>
           </div>
         </div>
 
