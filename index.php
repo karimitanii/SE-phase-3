@@ -1,5 +1,9 @@
 <?php
-session_start();
+require 'files/session.php';
+ensureLoggedIn();
+
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -7,6 +11,7 @@ session_start();
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
   <script src="https://kit.fontawesome.com/90ccdd32d7.js" crossorigin="anonymous"></script>
   <title>Monet Restaurant</title>
 
@@ -77,7 +82,7 @@ session_start();
       <!-- Checkout cart-->
       <div id="checkoutCart">
         <div id="checkoutCartIcon" onclick="openAndDisplay()">
-          <button class="btn-menu animated fadeInUp scrollto">CART</button>
+            <i class="fa-solid fa-cart-shopping"></i>
         </div>
         <div id="checkoutCartModal" class="checkoutModal">
           <div class="modal-content">
@@ -89,7 +94,7 @@ session_start();
       </div>
 
       
-      <a href="#book-a-table" class="book-a-table-btn scrollto d-none d-lg-flex">Book a table</a>
+     
     <a href="#leave-a-review" class="book-a-table-btn scrollto d-none d-lg-flex">Leave a Review</a>
 
     </div>
@@ -541,7 +546,7 @@ session_start();
           <p>Tell Us About Your Monet Experience</p>
         </div>
 
-        <form class="php-email-form">
+        <form class="php-email-form" action="submit_review.php" method="post">
           <div class="row">
             <div class="col-lg-4 col-md-6 form-group">
               <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4"
