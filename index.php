@@ -89,6 +89,7 @@ ensureLoggedIn();
               <span class="close" onclick="closeCheckoutCartModal()">&times;</span>
               <div id="cartResult"></div>
               <button class="btn-menu animated fadeInUp scrollto" onclick="closeCartModalAndAlert()"> Checkout </button>
+              <button class="btn-menu animated fadeInUp scrollto" onclick="clearCart()"> Clear Cart </button>
           </div>
         </div>
       </div>
@@ -1004,6 +1005,22 @@ if (file_exists($reviews_file)) {
   }
   function closeCheckoutCartModal() {
     document.getElementById("checkoutCartModal").style.display = "none";
+  }
+  function clearCart() {
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            if (xhr.status === 200) {
+                //alert('Cart emptied successfully');
+            } else {
+                //console.error('Failed to empty cart:', xhr.status);
+            }
+        }
+    };
+    xhr.open('GET', 'BE/emptyCart.php');
+    xhr.send();
+    alert("Cart Emptied");
+    closeCheckoutCartModal();
   }
 </script>
 
