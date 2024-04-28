@@ -95,7 +95,7 @@ ensureLoggedIn();
 
       
       <a href="#book-a-table" class="book-a-table-btn scrollto d-none d-lg-flex">Book a table</a>
-    <a href="#leave-a-review" class="book-a-table-btn scrollto d-none d-lg-flex">Leave a Review</a>
+
 
     </div>
   </header><!-- End Header -->
@@ -590,34 +590,36 @@ ensureLoggedIn();
 
     <!-- Customer Reviews Section -->
     <div id="customer-reviews">
-      <?php
-      $reviews_file = 'reviews.json';
+    <?php
+$reviews_file = 'reviews.json';
 
-      // Check if the file exists
-      if (file_exists($reviews_file)) {
-          // Read reviews from file
-          $reviews_data = file_get_contents($reviews_file);
-          $reviews = json_decode($reviews_data, true);
+if (file_exists($reviews_file)) {
+    $reviews_data = file_get_contents($reviews_file);
+    $reviews = json_decode($reviews_data, true);
 
-          // Check if there are any reviews
-          if (!empty($reviews)) {
-              // Loop through each review and display it
-              foreach ($reviews as $review) {
-                  echo '<div class="testimonial-item">';
-                  echo '<p>' . $review['message'] . '</p>';
-                  echo '<h3>' . $review['name'] . '</h3>';
-                  // Add more HTML for displaying email, phone, etc. if needed
-                  echo '</div>';
-              }
-          } else {
-              // If no reviews found
-              echo '<p>No reviews found.</p>';
-          }
-      } else {
-          // If file doesn't exist or unable to read it
-          echo '<p>Error: Unable to read reviews.</p>';
-      }
-      ?>
+    if (!empty($reviews)) {
+        foreach ($reviews as $review) {
+            echo '<div class="swiper-slide">';
+            echo '<div class="testimonial-item">';
+            echo '<p>';
+            echo '<i class="bx bxs-quote-alt-left quote-icon-left"></i>';
+            echo $review['message'];
+            echo '<i class="bx bxs-quote-alt-right quote-icon-right"></i>';
+            echo '</p>';
+            echo '<h3>' . $review['name'] . '</h3>';
+            echo '</div>';
+            echo '</div>';
+        }
+    } else {
+        echo '<div class="swiper-slide">';
+        echo '<div class="testimonial-item">';
+        echo '<p>No reviews found.</p>';
+        echo '</div>';
+        echo '</div>';
+    }
+} 
+?>
+
     </div>
     <!-- End Customer Reviews Section -->
 
