@@ -95,7 +95,7 @@ ensureLoggedIn();
       </div>
 
       
-      <a href="booking.php" class="book-a-table-btn scrollto d-none d-lg-flex">Book a table</a>
+      <a href="#book-a-table" class="book-a-table-btn scrollto d-none d-lg-flex">Book a table</a>
 
 
     </div>
