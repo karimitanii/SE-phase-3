@@ -11,6 +11,7 @@ This project was built by **Phoenix Software Solutions** using:
 - **Testing Framework:** PHPUnit (Unit Testing)  
 
 ## Features  
+
 ### User Functionalities:  
 - **User Authentication:** Sign up and log in securely.  
 - **Table Reservations:** Users can reserve tables in advance.  
