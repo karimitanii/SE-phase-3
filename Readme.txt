@@ -1,5 +1,5 @@
 Monet Restaurant Management System 🍽️
-Introduction
+
 The Monet Restaurant Management System is a sophisticated web-based application designed to enhance the online experience for Monet’s customers. Developed using modern web technologies, the system offers seamless functionality, allowing users to book tables, place orders, participate in a loyalty program, and submit reviews.
 
 This project was built by Phoenix Software Solutions using:
